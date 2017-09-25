@@ -13,6 +13,7 @@ namespace LibraryManagementSystem
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            ((Label)Master.FindControl("Label1")).Visible = true;
             int total = 0;
             ((Label)Master.FindControl("Label1")).Text = Session["Name"].ToString();
             SqlConnection con = new SqlConnection("data source=SUYPC123;initial catalog=Library_Management;user id=sa;password=Suyati123;MultipleActiveResultSets=True;App=EntityFramework");
