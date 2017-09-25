@@ -12,6 +12,7 @@ namespace LibraryManagementSystem
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+           
 
         }
 
@@ -20,10 +21,11 @@ namespace LibraryManagementSystem
             Library_ManagementEntities1 db = new Library_ManagementEntities1();
             var username = TextBox1.Text;
             var password = TextBox2.Text;
-            Session["Name"] = TextBox2.Text;
+           
             var item = (from s in db.User_Details where s.UserName == username && s.PassWord == password select s).FirstOrDefault();
             if(item!=null)
             {
+                Session["Name"] = TextBox1.Text;
                 Server.Transfer("User.aspx");
             }
             else

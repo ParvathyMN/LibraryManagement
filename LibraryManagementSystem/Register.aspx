@@ -3,9 +3,9 @@
     <style type="text/css">
     .auto-style1 {
         width: 100%;
-            height: 299px;
-            margin-top: 0px;
-        }
+        height: 299px;
+        margin-top: 0px;
+    }
     .auto-style2 {
         width: 172px;
     }

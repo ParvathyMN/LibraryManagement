@@ -6,8 +6,6 @@
         <AlternatingRowStyle BackColor="#DCDCDC" />
     <Columns>
 
-        <asp:BoundField DataField="BookId" HeaderText="BookId" InsertVisible="False" ReadOnly="True" SortExpression="BookId" />
-        <asp:BoundField DataField="UserId" HeaderText="UserId" SortExpression="UserId" />
         <asp:BoundField DataField="Book_Title" HeaderText="Book_Title" SortExpression="Book_Title" />
         <asp:BoundField DataField="Book_Author" HeaderText="Book_Author" SortExpression="Book_Author" />
         <asp:BoundField DataField="Book_Edition" HeaderText="Book_Edition" SortExpression="Book_Edition" />
@@ -34,5 +32,10 @@
 <p>
     <asp:Label ID="Label1" runat="server" Text="Total"></asp:Label>
     <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+</p>
+<p>
+    &nbsp;</p>
+<p>
+    <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Confirm" />
 </p>
 </asp:Content>

@@ -3,8 +3,8 @@
     <style type="text/css">
         .auto-style1 {
             width: 100%;
-            height: 199px;
-        }
+        height: 199px;
+    }
         .auto-style2 {
             width: 141px;
         }
