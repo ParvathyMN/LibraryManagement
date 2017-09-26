@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Library_ManagementModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Library_ManagementModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Book_Details">
           <Key>
             <PropertyRef Name="BookId" />
@@ -18,6 +18,15 @@
           <Property Name="Book_AvailDate" Type="datetime" Nullable="false" />
           <Property Name="Book_Amount" Type="money" Nullable="false" />
           <Property Name="Booked" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Order_Details">
+          <Key>
+            <PropertyRef Name="OrderId" />
+          </Key>
+          <Property Name="OrderId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="BookId" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="User_Details">
           <Key>
@@ -39,16 +48,48 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK__Order_Det__BookI__37A5467C">
+          <End Role="Book_Details" Type="Self.Book_Details" Multiplicity="1" />
+          <End Role="Order_Details" Type="Self.Order_Details" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Book_Details">
+              <PropertyRef Name="BookId" />
+            </Principal>
+            <Dependent Role="Order_Details">
+              <PropertyRef Name="BookId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Order_Det__UserI__36B12243">
+          <End Role="User_Details" Type="Self.User_Details" Multiplicity="1" />
+          <End Role="Order_Details" Type="Self.Order_Details" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User_Details">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Order_Details">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="Library_ManagementModelStoreContainer">
           <EntitySet Name="Book_Details" EntityType="Self.Book_Details" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Order_Details" EntityType="Self.Order_Details" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User_Details" EntityType="Self.User_Details" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK__Book_Deta__UserI__25869641" Association="Self.FK__Book_Deta__UserI__25869641">
             <End Role="User_Details" EntitySet="User_Details" />
             <End Role="Book_Details" EntitySet="Book_Details" />
           </AssociationSet>
+          <AssociationSet Name="FK__Order_Det__BookI__37A5467C" Association="Self.FK__Order_Det__BookI__37A5467C">
+            <End Role="Book_Details" EntitySet="Book_Details" />
+            <End Role="Order_Details" EntitySet="Order_Details" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Order_Det__UserI__36B12243" Association="Self.FK__Order_Det__UserI__36B12243">
+            <End Role="User_Details" EntitySet="User_Details" />
+            <End Role="Order_Details" EntitySet="Order_Details" />
+          </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Library_ManagementModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -65,7 +106,19 @@
           <Property Name="Book_AvailDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Book_Amount" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
           <Property Name="Booked" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="User_Details" Relationship="Self.FK__Book_Deta__UserI__25869641" FromRole="Book_Details" ToRole="User_Details" />
+          <NavigationProperty Name="Order_Details" Relationship="Self.FK__Order_Det__BookI__37A5467C" FromRole="Book_Details" ToRole="Order_Details" />
+        </EntityType>
+        <EntityType Name="Order_Details">
+          <Key>
+            <PropertyRef Name="OrderId" />
+          </Key>
+          <Property Name="OrderId" Type="Int32" Nullable="false" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="BookId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Book_Details" Relationship="Self.FK__Order_Det__BookI__37A5467C" FromRole="Order_Details" ToRole="Book_Details" />
+          <NavigationProperty Name="User_Details" Relationship="Self.FK__Order_Det__UserI__36B12243" FromRole="Order_Details" ToRole="User_Details" />
         </EntityType>
         <EntityType Name="User_Details">
           <Key>
@@ -75,6 +128,7 @@
           <Property Name="UserName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="PassWord" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Book_Details" Relationship="Self.FK__Book_Deta__UserI__25869641" FromRole="User_Details" ToRole="Book_Details" />
+          <NavigationProperty Name="Order_Details" Relationship="Self.FK__Order_Det__UserI__36B12243" FromRole="User_Details" ToRole="Order_Details" />
         </EntityType>
         <Association Name="FK__Book_Deta__UserI__25869641">
           <End Role="User_Details" Type="Self.User_Details" Multiplicity="1" />
@@ -88,12 +142,45 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Library_ManagementEntities1" annotation:LazyLoadingEnabled="true">
+        <Association Name="FK__Order_Det__BookI__37A5467C">
+          <End Role="Book_Details" Type="Self.Book_Details" Multiplicity="1" />
+          <End Role="Order_Details" Type="Self.Order_Details" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Book_Details">
+              <PropertyRef Name="BookId" />
+            </Principal>
+            <Dependent Role="Order_Details">
+              <PropertyRef Name="BookId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Order_Det__UserI__36B12243">
+          <End Role="User_Details" Type="Self.User_Details" Multiplicity="1" />
+          <End Role="Order_Details" Type="Self.Order_Details" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User_Details">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Order_Details">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Library_ManagementEntities4" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Book_Details" EntityType="Self.Book_Details" />
+          <EntitySet Name="Order_Details" EntityType="Self.Order_Details" />
           <EntitySet Name="User_Details" EntityType="Self.User_Details" />
           <AssociationSet Name="FK__Book_Deta__UserI__25869641" Association="Self.FK__Book_Deta__UserI__25869641">
             <End Role="User_Details" EntitySet="User_Details" />
             <End Role="Book_Details" EntitySet="Book_Details" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Order_Det__BookI__37A5467C" Association="Self.FK__Order_Det__BookI__37A5467C">
+            <End Role="Book_Details" EntitySet="Book_Details" />
+            <End Role="Order_Details" EntitySet="Order_Details" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Order_Det__UserI__36B12243" Association="Self.FK__Order_Det__UserI__36B12243">
+            <End Role="User_Details" EntitySet="User_Details" />
+            <End Role="Order_Details" EntitySet="Order_Details" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -101,7 +188,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Library_ManagementModelStoreContainer" CdmEntityContainer="Library_ManagementEntities1">
+        <EntityContainerMapping StorageEntityContainer="Library_ManagementModelStoreContainer" CdmEntityContainer="Library_ManagementEntities4">
           <EntitySetMapping Name="Book_Details">
             <EntityTypeMapping TypeName="Library_ManagementModel.Book_Details">
               <MappingFragment StoreEntitySet="Book_Details">
@@ -114,6 +201,16 @@
                 <ScalarProperty Name="Book_AvailDate" ColumnName="Book_AvailDate" />
                 <ScalarProperty Name="Book_Amount" ColumnName="Book_Amount" />
                 <ScalarProperty Name="Booked" ColumnName="Booked" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Order_Details">
+            <EntityTypeMapping TypeName="Library_ManagementModel.Order_Details">
+              <MappingFragment StoreEntitySet="Order_Details">
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="BookId" ColumnName="BookId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

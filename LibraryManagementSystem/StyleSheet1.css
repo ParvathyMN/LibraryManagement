@@ -1,11 +1,12 @@
 ﻿
-#header{  
-    /*color: black;*/  
+/*#header{ 
+    background-color:black; 
+    color: white;  
     text-align: center;  
     font-size: 20px;  
-}  
+}*/  
 #navigate{  
-   // background-color:#23C7CA;  
+   background-color:#23C7CA;  
     padding: 5px;  
 }  
 ul{  
@@ -16,7 +17,7 @@ li a {
     color:black;  
 font-size: 30px;  
 font-family:Cambria;
-column-width: 5%;  
+column-width: 15%;  
 
     }  
     li  
@@ -34,3 +35,4 @@ column-width: 5%;
     color: #FF1654;  
     padding:1%;  
    }  
+  

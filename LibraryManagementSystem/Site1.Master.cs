@@ -13,5 +13,12 @@ namespace LibraryManagementSystem
         {
 
         }
+
+        protected void Button1_Click1(object sender, EventArgs e)
+        {
+            Session.Abandon();
+            Session.Clear();
+            Response.Redirect("Home.aspx");
+        }
     }
 }

@@ -18,15 +18,16 @@ namespace LibraryManagementSystem.Models
         public User_Details()
         {
             this.Book_Details = new HashSet<Book_Details>();
+            this.Order_Details = new HashSet<Order_Details>();
         }
     
         public int UserId { get; set; }
         public string UserName { get; set; }
-
-      
         public string PassWord { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Book_Details> Book_Details { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Order_Details> Order_Details { get; set; }
     }
 }

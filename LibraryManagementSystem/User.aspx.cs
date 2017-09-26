@@ -14,9 +14,12 @@ namespace LibraryManagementSystem
         protected void Page_Load(object sender, EventArgs e)
         {
             ((Label)Master.FindControl("Label1")).Visible = true;
+          //  l.Visible = true;
             int total = 0;
-            ((Label)Master.FindControl("Label1")).Text = Session["Name"].ToString();
-            SqlConnection con = new SqlConnection("data source=SUYPC123;initial catalog=Library_Management;user id=sa;password=Suyati123;MultipleActiveResultSets=True;App=EntityFramework");
+     
+            // string str = "Welcome";
+            ((Label)Master.FindControl("Label1")).Text = Session["Name"].ToString(); 
+            // SqlConnection con = new SqlConnection("data source=SUYPC123;initial catalog=Library_Management;user id=sa;password=Suyati123;MultipleActiveResultSets=True;App=EntityFramework");
 
             //foreach (GridViewRow row in GridView1.Rows)
             //{
@@ -42,7 +45,7 @@ namespace LibraryManagementSystem
                 var bookName = Convert.ToString(row.Cells[0].Text);
 
 
-                Library_ManagementEntities1 db = new Library_ManagementEntities1();
+                Library_ManagementEntities4 db = new Library_ManagementEntities4();
                 var book = (from item in db.Book_Details where item.Book_Title == bookName select item).FirstOrDefault();
 
 
@@ -67,7 +70,7 @@ namespace LibraryManagementSystem
                 var bookName =Convert.ToString( row.Cells[0].Text);
 
 
-                Library_ManagementEntities1 db = new Library_ManagementEntities1();
+                Library_ManagementEntities4 db = new Library_ManagementEntities4();
                 var book = (from item in db.Book_Details where item.Book_Title == bookName select item).FirstOrDefault();
 
 
@@ -80,7 +83,7 @@ namespace LibraryManagementSystem
                     total = total + bookamt;
                     TextBox1.Text = Convert.ToString(total);
                 }
-                con.Close();
+               // con.Close();
             }
         }
 
@@ -90,19 +93,33 @@ namespace LibraryManagementSystem
             foreach (GridViewRow row in GridView1.Rows)
             {
                 var bookName = Convert.ToString(row.Cells[0].Text);
-                Library_ManagementEntities1 db = new Library_ManagementEntities1();
+                Library_ManagementEntities4 db = new Library_ManagementEntities4();
+                var uname = Session["Name"].ToString();
                 var book = (from item in db.Book_Details where item.Book_Title == bookName select item).FirstOrDefault();
-               
+                var user = (from items in db.User_Details where items.UserName == uname select items).FirstOrDefault();
                 var checkbox = row.FindControl("chkCtrl") as CheckBox;
                 if (checkbox.Checked)
                 {
-                    //var bookdate = book.Booked
+                    Order_Details obj = new Order_Details();
+                    obj.UserId = user.UserId;
+                    obj.BookId = book.BookId;
                     var count = book.Booked;
                     count = count - 1;
                     book.Booked = count;
+                    book.UserName = Session["Name"].ToString();
+                    db.Order_Details.Add(obj);
                     db.SaveChanges();
+
+
                 }
+                
             }
+            Response.Redirect("User.aspx");
+            
+          //  Label1.Visible = true;
+          
+            //Label2.Text = "Booked Succesfully";
+            //TextBox1.Text = "";
             
         }
     }

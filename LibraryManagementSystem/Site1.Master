@@ -8,75 +8,41 @@
     <link href="Content/bootstrap.css" rel="stylesheet" />
 
     <script src="scripts/bootstrap.min.js"></script>
-
+     <link href="StyleSheet1.css" rel="stylesheet" />
     <asp:ContentPlaceHolder ID="head" runat="server">
+       
+
     </asp:ContentPlaceHolder>
     <style>
         body {
             background-image: url('https://beingtop10.com/wp-content/uploads/2017/07/free-professional-website-backgrounds_188724.jpg') ;  
         }
-        
-#header{  
-    color: black;  
-    text-align: center;  
-    font-size: 20px;  
-    font-family:Cambria;
-}  
-#navigate{  
-   // background-color:#23C7CA;  
-    padding: 5px;  
-}  
-ul{  
-  
-    list-style-type: none;  
-}  
-li a {  
-    color:black;  
-font-size: 30px;  
-font-family:Cambria;
-column-width: 5%;  
-
-    }  
-    li  
-   {  
-    display: inline;  
-    padding-left: 2px;  
-    column-width: 20px;  
-   }  
-   a{  
- text-decoration: none;  
- margin-left:20px  
-    }  
-   li a:hover{  
-    background-color: yellowgreen;  
-    color: #FF1654;  
-    padding:1%;  
-   }  
-
-    </style>
-      
+          </style>   
 </head>
 
 
 
 <body>  
-<header id="header">  
-<h1 >Library Management </h1>  
-</header>  
-<nav id="navigate">  
+<%--<header id="header">  
+<h1 >EDUGATE </h1>  
+</header> --%> 
+     <form id="form1" runat="server">
+                  <nav id="navigate">  
     <ul>  
+        <%--<li><h1>EDUGATE</h1></li>--%>
         <li><a href="Home.aspx">Home</a></li>  
-        <li><a href="About.aspx">About</a></li>  
+        <li><a href="Order.aspx">My Orders</a></li>  
         <li><a href="Collection.aspx">Collection</a></li>  
-        <li><a href="Contact.aspx">Contact</a></li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+        <li><a href="Contact.aspx">Contact</a></li> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
         <asp:Label ID="Label1" runat="server" Text="Label" Font-Bold="False" Font-Size="X-Large" ForeColor="Blue" Visible="False"></asp:Label>
-        <li><a href="Home.aspx" style="float:right">Logout</a></li> 
+       <li>
+            <asp:Button ID="Button1" runat="server" Text="Logout" OnClick="Button1_Click1" />
+
+        </li>
+        <%--<li><a href="Home.aspx" style="float:right">Logout</a></li>--%>
     </ul>  
 </nav>  
 
-
-
-    <form id="form1" runat="server">
     <div>
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
         

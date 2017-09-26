@@ -104,15 +104,26 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="About.aspx" />
     <Content Include="Collection.aspx" />
     <Content Include="Contact.aspx" />
+    <Content Include="Models\Library.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Library.edmx</DependentUpon>
+      <LastGenOutput>Library.Context.cs</LastGenOutput>
+    </Content>
     <Content Include="Models\library.jpg" />
+    <Content Include="Models\Library.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Library.edmx</DependentUpon>
+      <LastGenOutput>Library.cs</LastGenOutput>
+    </Content>
+    <Content Include="Order.aspx" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Site1.Master" />
+    <Content Include="scripts\jquery-1.9.1.min.map" />
     <EntityDeploy Include="Models\Library.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Library.Designer.cs</LastGenOutput>
@@ -120,7 +131,6 @@
     <Content Include="Models\Library.edmx.diagram">
       <DependentUpon>Library.edmx</DependentUpon>
     </Content>
-    <Content Include="scripts\jquery-1.9.1.min.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -136,16 +146,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Home.aspx" />
-    <Content Include="Models\Library.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Library.edmx</DependentUpon>
-      <LastGenOutput>Library.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\Library.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Library.edmx</DependentUpon>
-      <LastGenOutput>Library.cs</LastGenOutput>
-    </Content>
     <Content Include="Register.aspx" />
     <Content Include="scripts\ai.0.22.9-build00167.js" />
     <Content Include="scripts\ai.0.22.9-build00167.min.js" />
@@ -172,13 +172,6 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="About.aspx.cs">
-      <DependentUpon>About.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="About.aspx.designer.cs">
-      <DependentUpon>About.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Collection.aspx.cs">
       <DependentUpon>Collection.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -221,8 +214,18 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Library.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\Order_Details.cs">
+      <DependentUpon>Library.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\User_Details.cs">
       <DependentUpon>Library.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Order.aspx.cs">
+      <DependentUpon>Order.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Order.aspx.designer.cs">
+      <DependentUpon>Order.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Register.aspx.cs">

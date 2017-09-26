@@ -38,4 +38,7 @@
 <p>
     <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Confirm" />
 </p>
+<asp:Label ID="Label2" runat="server"></asp:Label>
+<p>
+    &nbsp;</p>
 </asp:Content>

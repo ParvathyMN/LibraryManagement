@@ -3,7 +3,7 @@
     <style type="text/css">
     .auto-style1 {
         width: 100%;
-        height: 299px;
+        height: 167px;
         margin-top: 0px;
     }
     .auto-style2 {
@@ -12,9 +12,14 @@
     .auto-style3 {
         margin-left: 8px;
     }
+    #d2{
+            margin:auto;
+            width:900px;
+    }
 </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <div id="d2">
     <table class="auto-style1">
     <tr>
         <td class="auto-style2">
@@ -43,4 +48,5 @@
         </td>
     </tr>
 </table>
+        </div>
 </asp:Content>

@@ -17,7 +17,7 @@ namespace LibraryManagementSystem
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            using (Library_ManagementEntities1 context = new Library_ManagementEntities1())
+            using (Library_ManagementEntities4 context = new Library_ManagementEntities4())
             {
                 User_Details obj = new User_Details();
                 obj.UserName = TextBox1.Text;

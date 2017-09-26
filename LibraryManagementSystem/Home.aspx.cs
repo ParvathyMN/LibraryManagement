@@ -18,7 +18,7 @@ namespace LibraryManagementSystem
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            Library_ManagementEntities1 db = new Library_ManagementEntities1();
+            Library_ManagementEntities4 db = new Library_ManagementEntities4();
             var username = TextBox1.Text;
             var password = TextBox2.Text;
            
