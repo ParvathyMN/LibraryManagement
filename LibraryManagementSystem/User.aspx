@@ -1,8 +1,21 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="User.aspx.cs" Inherits="LibraryManagementSystem.User" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <style type="text/css">
+        #d6{
+             margin:auto;
+             width:1000px;
+             color:mediumvioletred;
+        }
+         #d7{
+             margin:auto;
+             width:1000px;
+             color:blueviolet;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="BookId" DataSourceID="SqlDataSource1" Width="805px" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3" GridLines="Vertical">
+    <div id="d6">
+    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="BookId" DataSourceID="SqlDataSource1" Width="805px" BackColor="White" BorderColor="Aqua" BorderStyle="Ridge" BorderWidth="1px" CellPadding="3" GridLines="Vertical" Font-Size="Medium">
         <AlternatingRowStyle BackColor="#DCDCDC" />
     <Columns>
 
@@ -28,7 +41,11 @@
         <SortedDescendingCellStyle BackColor="#CAC9C9" />
         <SortedDescendingHeaderStyle BackColor="#000065" />
 </asp:GridView>
-<asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Library_ManagementConnectionString3 %>" SelectCommand="SELECT * FROM [Book_Details]"></asp:SqlDataSource>
+<asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Library_ManagementConnectionString3 %>" SelectCommand="SELECT * FROM [Book_Details]">
+
+</asp:SqlDataSource>
+        </div>
+    <div id="d7">
 <p>
     <asp:Label ID="Label1" runat="server" Text="Total"></asp:Label>
     <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
@@ -39,6 +56,8 @@
     <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Confirm" />
 </p>
 <asp:Label ID="Label2" runat="server"></asp:Label>
+        </div>
 <p>
     &nbsp;</p>
+        
 </asp:Content>

@@ -29,7 +29,6 @@ namespace LibraryManagementSystem.Models
         public System.DateTime Book_AvailDate { get; set; }
         public decimal Book_Amount { get; set; }
         public int Booked { get; set; }
-        public string UserName { get; set; }
     
         public virtual User_Details User_Details { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

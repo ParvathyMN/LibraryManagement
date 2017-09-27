@@ -11,7 +11,7 @@ namespace LibraryManagementSystem
 {
 
 
-    public partial class Contact
+    public partial class ErrorPage
     {
     }
 }

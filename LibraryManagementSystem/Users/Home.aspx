@@ -7,18 +7,20 @@
     }
         .auto-style2 {
             width: 141px;
-        }
+    }
         #d1{
-            margin:auto;
-            width:900px;
-        }
-        #d3{
-            text-size-adjust:auto;
+            margin-left:400px;
+            width:400px;
+            height:400px;
+
+           }
+        .auto-style3 {
+            width: 80px;
         }
     </style>
 </asp:Content>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div id="d1">
+    <div id="d1" class="auto-style3">
     <table class="auto-style1">
         <tr>
             <td class="auto-style2">
@@ -48,6 +50,6 @@
         </table>
     
 
-     <a href="Register.aspx" id="d3">New user ? Register here !!!</a>
+     <a style="color:black;resize:both;" href="Register.aspx" ><h3>New user ? Register here !!!</a>
             </div>
 </asp:Content>

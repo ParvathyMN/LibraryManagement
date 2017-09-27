@@ -13,8 +13,10 @@
         margin-left: 8px;
     }
     #d2{
-            margin:auto;
-            width:900px;
+          margin-left:400px;
+            width:400px;
+            height:400px;
+
     }
 </style>
 </asp:Content>

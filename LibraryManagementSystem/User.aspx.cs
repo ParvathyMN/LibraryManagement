@@ -13,12 +13,10 @@ namespace LibraryManagementSystem
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            ((Label)Master.FindControl("Label1")).Visible = true;
-          //  l.Visible = true;
-            int total = 0;
-     
+           // ((Label)Master.FindControl("Label1")).Visible = true;
+            int total = 0;    
             // string str = "Welcome";
-            ((Label)Master.FindControl("Label1")).Text = Session["Name"].ToString(); 
+            //((Label)Master.FindControl("Label1")).Text = Session["Name"].ToString(); 
             // SqlConnection con = new SqlConnection("data source=SUYPC123;initial catalog=Library_Management;user id=sa;password=Suyati123;MultipleActiveResultSets=True;App=EntityFramework");
 
             //foreach (GridViewRow row in GridView1.Rows)
@@ -45,7 +43,7 @@ namespace LibraryManagementSystem
                 var bookName = Convert.ToString(row.Cells[0].Text);
 
 
-                Library_ManagementEntities4 db = new Library_ManagementEntities4();
+                Library_ManagementEntities5 db = new Library_ManagementEntities5();
                 var book = (from item in db.Book_Details where item.Book_Title == bookName select item).FirstOrDefault();
 
 
@@ -70,7 +68,7 @@ namespace LibraryManagementSystem
                 var bookName =Convert.ToString( row.Cells[0].Text);
 
 
-                Library_ManagementEntities4 db = new Library_ManagementEntities4();
+                Library_ManagementEntities5 db = new Library_ManagementEntities5();
                 var book = (from item in db.Book_Details where item.Book_Title == bookName select item).FirstOrDefault();
 
 
@@ -93,7 +91,7 @@ namespace LibraryManagementSystem
             foreach (GridViewRow row in GridView1.Rows)
             {
                 var bookName = Convert.ToString(row.Cells[0].Text);
-                Library_ManagementEntities4 db = new Library_ManagementEntities4();
+                Library_ManagementEntities5 db = new Library_ManagementEntities5();
                 var uname = Session["Name"].ToString();
                 var book = (from item in db.Book_Details where item.Book_Title == bookName select item).FirstOrDefault();
                 var user = (from items in db.User_Details where items.UserName == uname select items).FirstOrDefault();
@@ -106,7 +104,7 @@ namespace LibraryManagementSystem
                     var count = book.Booked;
                     count = count - 1;
                     book.Booked = count;
-                    book.UserName = Session["Name"].ToString();
+                   // book.UserName = Session["Name"].ToString();
                     db.Order_Details.Add(obj);
                     db.SaveChanges();
 
@@ -114,7 +112,8 @@ namespace LibraryManagementSystem
                 }
                 
             }
-            Response.Redirect("User.aspx");
+            Label2.Text = "Booked Successfully";
+            Response.Redirect("Order.aspx");
             
           //  Label1.Visible = true;
           

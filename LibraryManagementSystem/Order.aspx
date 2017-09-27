@@ -1,8 +1,15 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="Order.aspx.cs" Inherits="LibraryManagementSystem.Order" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+      <style type="text/css">
+          #d5{
+            margin:auto;
+            width:1000px;
+            color:blue;
+          }
+          </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-     <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
+    <div id="d5">
 <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" >
     <Columns>
         <asp:BoundField DataField="UserName" HeaderText="UserName" SortExpression="UserName" visible="false"/>
@@ -23,5 +30,7 @@ FROM            Book_Details INNER JOIN
              <asp:SessionParameter Name="UserName" SessionField="Name" Type="String" />
          </SelectParameters>
      </asp:SqlDataSource>
-     
+           <a  style="color:black;resize:both;" href="User.aspx" ><h3>Do you wish to book more ???</h3></a>
+     </div>
     </asp:Content>
+

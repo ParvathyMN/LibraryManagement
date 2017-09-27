@@ -12,10 +12,7 @@ namespace LibraryManagementSystem
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //Label2.Text = "Booked Succesfully";
-            //Library_ManagementEntities2 context = new Library_ManagementEntities2();
-            //var order = (from item in context.Book_Details where item.UserName == Session["Name"].ToString() select item).FirstOrDefault();
-
+           
         }
     }
 }

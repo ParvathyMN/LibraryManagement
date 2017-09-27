@@ -8,40 +8,81 @@
     <link href="Content/bootstrap.css" rel="stylesheet" />
 
     <script src="scripts/bootstrap.min.js"></script>
+    <script src="scripts/jquery-1.9.1.min.js"></script>
+    <script src="scripts/jquery.validate.js"></script>
+
      <link href="StyleSheet1.css" rel="stylesheet" />
     <asp:ContentPlaceHolder ID="head" runat="server">
        
 
     </asp:ContentPlaceHolder>
-    <style>
+  <%--  <style>
         body {
             background-image: url('https://beingtop10.com/wp-content/uploads/2017/07/free-professional-website-backgrounds_188724.jpg') ;  
         }
-          </style>   
+          </style>   --%>
 </head>
 
 
 
 <body>  
-<%--<header id="header">  
+<header id="header">  
 <h1 >EDUGATE </h1>  
-</header> --%> 
+</header>  
      <form id="form1" runat="server">
-                  <nav id="navigate">  
+         <asp:LoginView ID="LoginView1" runat="server">
+             
+             <AnonymousTemplate>
+                    <nav id="navigate" class="navbar">  
     <ul>  
-        <%--<li><h1>EDUGATE</h1></li>--%>
+        <li><a href="Home.aspx">Home</a></li>  
+        <li><a href="Collection.aspx">Collection</a></li>  
+        <li><a href="Contact.aspx">Contact Us</a></li> 
+    </ul>  
+</nav> 
+                 <div id="div1">
+                 <asp:Image ID="Image1" runat="server" ImageUrl="~/Models/books_1-512.png"/>
+                     </div>
+          
+         </AnonymousTemplate>
+             <LoggedInTemplate>
+   <nav id="navigate" class="navbar">   
+        <ul  class="nav navbar-nav navbar-left">
+            <br/>
+                   <li><a href="User.aspx">Book</a></li>  
+                   <li><a href="Order.aspx">My Orders</a></li>  
+                  
+                  <%-- <li><a href="Contact.aspx">Contact Us</a></li>--%>
+                   <li>
+        </ul>
+       <ul class="nav navbar-nav navbar-right"> 
+                   <li>
+                   <asp:Label ID="Label1" runat="server" Text="Label" Font-Bold="False" Font-Size="X-Large" ForeColor="Blue" Visible="True"></asp:Label>
+                   </li>
+           <br />
+                   <li>
+                   <asp:Button ID="Button1" runat="server" Text="Logout" OnClick="Button1_Click1" />
+                   </li>
+         </ul>   
+</nav>  
+
+             </LoggedInTemplate>
+         </asp:LoginView>
+
+                <!--  <nav id="navigate" class="navbar">  
+    <ul>  
+       <%-- <li><h1>EDUGATE</h1></li>--%>
         <li><a href="Home.aspx">Home</a></li>  
         <li><a href="Order.aspx">My Orders</a></li>  
         <li><a href="Collection.aspx">Collection</a></li>  
         <li><a href="Contact.aspx">Contact</a></li> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-        <asp:Label ID="Label1" runat="server" Text="Label" Font-Bold="False" Font-Size="X-Large" ForeColor="Blue" Visible="False"></asp:Label>
-       <li>
-            <asp:Button ID="Button1" runat="server" Text="Logout" OnClick="Button1_Click1" />
+        <li><asp:Label ID="Label1" runat="server" Text="Label" Font-Bold="False" Font-Size="X-Large" ForeColor="Blue" Visible="False"></asp:Label></li>
+        <li>
+            <asp:Button ID="Button1" runat="server" Text="Logout" OnClick="Button1_Click1" /></li>
 
-        </li>
         <%--<li><a href="Home.aspx" style="float:right">Logout</a></li>--%>
     </ul>  
-</nav>  
+</nav>  -->
 
     <div>
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">

@@ -10,7 +10,7 @@
 namespace LibraryManagementSystem {
     
     
-    public partial class Order {
+    public partial class Collection {
         
         /// <summary>
         /// GridView1 control.
