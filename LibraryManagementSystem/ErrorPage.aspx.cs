@@ -11,7 +11,13 @@ namespace LibraryManagementSystem
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            Label2.Text = "Sorry,unexpected error occured.Click here to retry";
 
+        }
+
+        protected void Button2_Click1(object sender, EventArgs e)
+        {
+            Response.Redirect("User.aspx");
         }
     }
 }

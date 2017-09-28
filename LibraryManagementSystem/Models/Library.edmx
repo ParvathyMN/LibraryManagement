@@ -26,6 +26,7 @@
           <Property Name="OrderId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="UserId" Type="int" Nullable="false" />
           <Property Name="BookId" Type="int" Nullable="false" />
+          <Property Name="mode" Type="int" />
         </EntityType>
         <EntityType Name="User_Details">
           <Key>
@@ -116,6 +117,7 @@
           <Property Name="OrderId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="UserId" Type="Int32" Nullable="false" />
           <Property Name="BookId" Type="Int32" Nullable="false" />
+          <Property Name="mode" Type="Int32" />
           <NavigationProperty Name="Book_Details" Relationship="Self.FK__Order_Det__BookI__37A5467C" FromRole="Order_Details" ToRole="Book_Details" />
           <NavigationProperty Name="User_Details" Relationship="Self.FK__Order_Det__UserI__36B12243" FromRole="Order_Details" ToRole="User_Details" />
         </EntityType>
@@ -165,7 +167,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Library_ManagementEntities5" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="Library_ManagementEntities6" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Book_Details" EntityType="Self.Book_Details" />
           <EntitySet Name="Order_Details" EntityType="Self.Order_Details" />
           <EntitySet Name="User_Details" EntityType="Self.User_Details" />
@@ -187,7 +189,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Library_ManagementModelStoreContainer" CdmEntityContainer="Library_ManagementEntities5">
+        <EntityContainerMapping StorageEntityContainer="Library_ManagementModelStoreContainer" CdmEntityContainer="Library_ManagementEntities6">
           <EntitySetMapping Name="Book_Details">
             <EntityTypeMapping TypeName="Library_ManagementModel.Book_Details">
               <MappingFragment StoreEntitySet="Book_Details">
@@ -209,6 +211,7 @@
                 <ScalarProperty Name="OrderId" ColumnName="OrderId" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
                 <ScalarProperty Name="BookId" ColumnName="BookId" />
+                <ScalarProperty Name="mode" ColumnName="mode" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

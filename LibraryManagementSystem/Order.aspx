@@ -10,7 +10,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div id="d5">
-<asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" >
+<asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" BackColor="#009999" BorderColor="Black" BorderStyle="Groove" Font-Size="Medium" ForeColor="Black" >
     <Columns>
         <asp:BoundField DataField="UserName" HeaderText="UserName" SortExpression="UserName" visible="false"/>
          <asp:BoundField DataField="Book_Title" HeaderText="BookTitle" SortExpression="BookTitle" />
@@ -20,6 +20,7 @@
 
 
     </Columns>
+    <HeaderStyle Font-Size="Larger" />
 </asp:GridView>
      
      <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Library_ManagementConnectionString5 %>" SelectCommand="SELECT User_Details.UserName,Book_Details.Book_Title, Book_Details.Book_Author, Book_Details.Book_Edition, Book_Details.Book_ISBN

@@ -17,6 +17,7 @@ namespace LibraryManagementSystem.Models
         public int OrderId { get; set; }
         public int UserId { get; set; }
         public int BookId { get; set; }
+        public Nullable<int> mode { get; set; }
     
         public virtual Book_Details Book_Details { get; set; }
         public virtual User_Details User_Details { get; set; }

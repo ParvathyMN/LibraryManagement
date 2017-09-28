@@ -15,7 +15,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div id="d6">
-    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="BookId" DataSourceID="SqlDataSource1" Width="805px" BackColor="White" BorderColor="Aqua" BorderStyle="Ridge" BorderWidth="1px" CellPadding="3" GridLines="Vertical" Font-Size="Medium">
+    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="BookId" DataSourceID="SqlDataSource1" Width="805px" BackColor="#006666" BorderColor="Black" BorderStyle="Groove" BorderWidth="1px" CellPadding="3" GridLines="Vertical" Font-Size="Medium" ForeColor="Black">
         <AlternatingRowStyle BackColor="#DCDCDC" />
     <Columns>
 
@@ -31,8 +31,9 @@
                 </ItemTemplate>
             </asp:TemplateField>
     </Columns>
+        <EditRowStyle BackColor="Black" />
         <FooterStyle BackColor="#CCCCCC" ForeColor="Black" />
-        <HeaderStyle BackColor="#000084" Font-Bold="True" ForeColor="White" />
+        <HeaderStyle Font-Bold="True" ForeColor="Black" BorderColor="Black" Font-Size="Larger" />
         <PagerStyle BackColor="#999999" ForeColor="Black" HorizontalAlign="Center" />
         <RowStyle BackColor="#EEEEEE" ForeColor="Black" />
         <SelectedRowStyle BackColor="#008A8C" Font-Bold="True" ForeColor="White" />
@@ -47,13 +48,13 @@
         </div>
     <div id="d7">
 <p>
-    <asp:Label ID="Label1" runat="server" Text="Total"></asp:Label>
+    <asp:Label ID="Label1" runat="server" Text="Total" ForeColor="Black"></asp:Label>
     <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
 </p>
 <p>
     &nbsp;</p>
 <p>
-    <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Confirm" />
+    <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Save" BackColor="#006666" ForeColor="Black" />
 </p>
 <asp:Label ID="Label2" runat="server"></asp:Label>
         </div>

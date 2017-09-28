@@ -7,10 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace LibraryManagementSystem {
+namespace LibraryManagementSystem.Users {
     
     
-    public partial class ErrorPage {
+    public partial class LoginError {
         
         /// <summary>
         /// Label2 control.

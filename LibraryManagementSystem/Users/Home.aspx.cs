@@ -13,14 +13,15 @@ namespace LibraryManagementSystem
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-           
+            Label3.Visible = false;
 
         }
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            
-                Library_ManagementEntities5 db = new Library_ManagementEntities5();
+            try
+            {
+                Library_ManagementEntities6 db = new Library_ManagementEntities6();
                 var username = TextBox1.Text;
                 var password = TextBox2.Text;
 
@@ -33,8 +34,16 @@ namespace LibraryManagementSystem
                 }
                 else
                 {
-                    Response.Write("Sorry,Invalid credentials.");
+                    Label3.Visible = true;
+                    Label3.Text = "Sorry! Invalid username and password.";
                 }
+                
+            }
+            
+            catch(Exception ex)
+            {
+                Response.Redirect("LoginError.aspx");
+            }
         }
 
         protected void Button2_Click(object sender, EventArgs e)

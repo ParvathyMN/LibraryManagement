@@ -1,12 +1,12 @@
 ﻿
 #header{ 
-    background-color:#23C7CA; 
+    background-color:#006666; 
     color: white;  
     text-align: center;  
     font-size: 20px;  
 }  
 #navigate{  
-   background-color:#23C7CA;  
+   background-color:#006666;  
     padding: 5px;  
 }  
 ul{  
@@ -52,4 +52,10 @@ column-width: 15%;
        
 
    }
+   /*#right{
+      // height:600px;
+      float:right;
+      width:300px;
+     
+   }*/
   
