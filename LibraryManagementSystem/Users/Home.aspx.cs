@@ -37,6 +37,7 @@ namespace LibraryManagementSystem
                     Label3.Visible = true;
                     Label3.Text = "Sorry! Invalid username and password.";
                 }
+               // throw new Exception();
                 
             }
             

@@ -46,7 +46,8 @@ namespace LibraryManagementSystem
 
 
                 }
-                
+                throw new Exception();
+
             }
             
             catch (Exception ex)
